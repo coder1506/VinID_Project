@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="buttonLogin">
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:textSize">@dimen/button_login</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/border_basic</item>
+    </style>
+
+    <style name="buttonAdmin">
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:textSize">@dimen/button_login</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/border_basic</item>
+    </style>
+
+    <style name="textTitle">
+        <item name="android:textSize">@dimen/text_basic</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="textBasic">
+        <item name="android:textSize">@dimen/text_basic</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+</resources>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ShoppingCartActivity"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/red">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cart"
+                android:textSize="@dimen/text_title"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back"
+                android:background="@android:color/transparent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/revListItemCart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:layout_above="@id/layout"/>
+
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tên người nhận:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:text="Đàm Sơn Đông"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phoneNumber"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+
+                    <TextView
+                        android:id="@+id/textPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:text="0961371070"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/location"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+
+                    <EditText
+                        android:id="@+id/textLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nhập địa chỉ giao hàng"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"
+                        android:layout_marginLeft="5dp"
+                        android:padding="5dp"
+                        android:singleLine="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loại thanh toán:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginHorizontal="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sum"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+
+                    <TextView
+                        android:id="@+id/textSum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/text_basic"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="@string/order"
+                    android:backgroundTint="@color/red"
+                    android:textSize="@dimen/text_basic"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

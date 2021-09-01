@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/vinid_logo"
+            android:layout_marginTop="50dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/buttonCustomer"
+                android:text="Đăng nhập với?"
+                android:textStyle="italic"
+                android:textSize="@dimen/text_basic"
+                android:layout_marginBottom="20sp"
+                android:layout_centerHorizontal="true"/>
+
+            <Button
+                android:id="@+id/buttonCustomer"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="@string/customer"
+                style="@style/buttonLogin"
+                android:layout_above="@id/buttonAdmin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20sp"/>
+
+            <Button
+                android:id="@+id/buttonAdmin"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="@string/admin"
+                style="@style/buttonLogin"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

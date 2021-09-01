@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">VinID_Project</string>
+    <string name="customer">Khách hàng</string>
+    <string name="admin">Admin</string>
+    <string name="accept">Xác nhận</string>
+    <string name="phoneNumber">Số điện thoại:</string>
+    <string name="name">Họ và tên:</string>
+    <string name="title_login">Chú ý: Hãy nhập chính xác vì thông tin này liên quan đến quá trình giao hàng!</string>
+    <string name="title_login2">Đăng nhập với tài khoản Admin!</string>
+    <string name="login">Đăng nhập</string>
+    <string name="password">Mật khẩu</string>
+    <string name="account">Tài khoản</string>
+
+    <!--    Button function-->
+    <string name="add">Thêm</string>
+    <string name="edit">Sửa</string>
+
+    <!--    Shoping Cart-->
+    <string name="cart">Giỏ hàng</string>
+    <string name="order">Đặt hàng</string>
+    <string name="sum">Thành tiền:</string>
+    <string name="location">Địa chỉ:</string>
+    <string name="voucher">Voucher:</string>
+    <string name="receipt">Quản lý hóa đơn</string>
+    <string name="items">Quản lý mặt hàng</string>
+    <string name="customers">Quản lý khách hàng</string>
+</resources>
