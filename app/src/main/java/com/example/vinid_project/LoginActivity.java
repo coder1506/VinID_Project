@@ -72,7 +72,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             editor.putString("customer_name", binding.textName.getText().toString());
             editor.putString("customer_phone", binding.textPhoneNumber.getText().toString());
             editor.apply();
-            customerSQLiteHelper.insertCustomers(binding.textName.getText().toString(), binding.textPhoneNumber.getText().toString());
+            customerSQLiteHelper.insertCustomers(
+                    binding.textName.getText().toString(), binding.textPhoneNumber.getText().toString()
+            );
             startActivity(new Intent(getBaseContext(), DetailCustomerActivity.class));
             finish();
         }

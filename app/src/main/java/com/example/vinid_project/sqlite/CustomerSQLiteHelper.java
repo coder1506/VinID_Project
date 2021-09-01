@@ -30,8 +30,11 @@ public class CustomerSQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String queryCreaTable = "CREATE TABLE Customers ( " +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                "codeCustomers Text ," +
                 "nameCustomers Text ," +
-                "phoneNumberCustomers Text)";
+                "email Text ," +
+                "phoneNumberCustomers Text ," +
+                "address Text)";
 
         //Chạy câu lệnh tạo bảng
         db.execSQL(queryCreaTable);
@@ -45,6 +48,19 @@ public class CustomerSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void insertCustomers(String codeCustomers,String nameCustomers,String email, String phoneNumberCustomers,String address) {
+        sqLiteDatabase = getWritableDatabase();
+
+        contentValues = new ContentValues();
+        contentValues.put("codeCustomers", codeCustomers);
+        contentValues.put("nameCustomers", nameCustomers);
+        contentValues.put("email", email);
+        contentValues.put("phoneNumberCustomers", phoneNumberCustomers);
+        contentValues.put("address", address);
+
+        sqLiteDatabase.insert(DB_NAME_TABLE, null, contentValues);
+        closeDB();
+    }
     public void insertCustomers(String nameCustomers, String phoneNumberCustomers) {
         sqLiteDatabase = getWritableDatabase();
 
@@ -55,7 +71,6 @@ public class CustomerSQLiteHelper extends SQLiteOpenHelper {
         sqLiteDatabase.insert(DB_NAME_TABLE, null, contentValues);
         closeDB();
     }
-
     public void updateCustomers(int id, String nameCustomers, String phoneNumberCustomers) {
         sqLiteDatabase = getWritableDatabase();
 

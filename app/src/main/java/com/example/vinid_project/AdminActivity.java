@@ -24,6 +24,7 @@ import com.example.vinid_project.sqlite.OrderSQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AdminActivity extends AppCompatActivity implements OnClickListener {
     ActivityAdminBinding binding;
@@ -67,6 +68,7 @@ public class AdminActivity extends AppCompatActivity implements OnClickListener 
     private void initDataCustomer() {
         customerList = customerSQLiteHelper.getAllCustomersAdvanced();
 
+        binding.textCodeCustomer.setText("KH"+UUID.randomUUID());
         customerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, customerList);
         binding.lvCustomer.setAdapter(customerAdapter);
 
@@ -74,8 +76,11 @@ public class AdminActivity extends AppCompatActivity implements OnClickListener 
         binding.lvCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                binding.textCodeCustomer.setText(customerList.get(position).getCode());
                 binding.textNameCustomer.setText(customerList.get(position).getName());
+                binding.textEmailCustomer.setText(customerList.get(position).getEmail());
                 binding.textPhoneNumberCustomer.setText(customerList.get(position).getPhoneNumber());
+                binding.textAddressCustomer.setText(customerList.get(position).getAddress());
                 viTriCustomer = position;
                 idCustomer = customerList.get(position).getId();
                 Log.d("IdCustomer", String.valueOf(id));
@@ -360,8 +365,13 @@ public class AdminActivity extends AppCompatActivity implements OnClickListener 
     }
 
     private void editCustomers() {
-        customerList.set(viTriCustomer, new Customer(binding.textNameCustomer.getText().toString(),
-                binding.textPhoneNumberCustomer.getText().toString()));
+        customerList.set(viTriCustomer, new Customer(
+                binding.textCodeCustomer.getText().toString(),
+                binding.textNameCustomer.getText().toString(),
+                binding.textEmailCustomer.getText().toString(),
+                binding.textPhoneNumberCustomer.getText().toString(),
+                binding.textAddressCustomer.getText().toString()
+        ));
         customerAdapter.notifyDataSetChanged();
         customerSQLiteHelper.updateCustomers(idCustomer,
                 binding.textNameCustomer.getText().toString(),
@@ -375,13 +385,24 @@ public class AdminActivity extends AppCompatActivity implements OnClickListener 
         } else if (binding.textPhoneNumberCustomer.getText().toString().isEmpty()) {
             binding.textPhoneNumberCustomer.setError("Không được để trống!");
         } else {
-            customerList.add(new Customer(binding.textNameCustomer.getText().toString(),
-                    binding.textPhoneNumberCustomer.getText().toString()));
+            customerList.add(new Customer(
+                    binding.textCodeCustomer.getText().toString(),
+                    binding.textNameCustomer.getText().toString(),
+                    binding.textEmailCustomer.getText().toString(),
+                    binding.textPhoneNumberCustomer.getText().toString(),
+                    binding.textAddressCustomer.getText().toString()
+            ));
             customerAdapter.notifyDataSetChanged();
 
-            customerSQLiteHelper.insertCustomers(binding.textNameCustomer.getText().toString(),
-                    binding.textPhoneNumberCustomer.getText().toString());
+            customerSQLiteHelper.insertCustomers(
+                    binding.textCodeCustomer.getText().toString(),
+                    binding.textNameCustomer.getText().toString(),
+                    binding.textEmailCustomer.getText().toString(),
+                    binding.textPhoneNumberCustomer.getText().toString(),
+                    binding.textAddressCustomer.getText().toString()
+            );
             Toast.makeText(getBaseContext(), "Thêm dữ liệu thành công", Toast.LENGTH_SHORT).show();
+            binding.textCodeCustomer.setText(UUID.randomUUID().toString());
         }
     }
 }
